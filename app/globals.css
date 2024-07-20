@@ -89,6 +89,18 @@
 .cl-userButtonPopoverActionButton {
   color: white;
 }
+.cl-button:hover{
+  color: rgb(219, 207, 207);
+}
+.cl-button__security{
+  color: rgb(8, 255, 8);
+}
+@media (min-width: 700px){
+  .cl-scrollBox{
+    max-height: 500px;
+  }
+}
+
 
 /* =============================== */
 
@@ -121,4 +133,24 @@
     animation-timing-function: ease-in;
     width: 100%;
   }
+}
+
+.custom-auth-layout {
+  display: flex;
+  align-items: center;
+}
+
+.custom-auth-layout .clerk-logo {
+  display: flex;
+  align-items: center;
+}
+
+.custom-auth-layout .clerk-logo img {
+  margin-right: 10px;
+}
+
+.custom-auth-layout .clerk-logo-name {
+  font-size: 1.5rem;
+  color: #fff;
+  font-weight: bold;
 }

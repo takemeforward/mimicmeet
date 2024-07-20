@@ -3,6 +3,7 @@ import {
   CallingState,
   CallParticipantsList,
   CallStatsButton,
+  LivestreamLayout,
   PaginatedGridLayout,
   SpeakerLayout,
   useCallStateHooks,
@@ -21,11 +22,16 @@ import React, { useState } from "react";
 import { LayoutList, Loader, Users } from "lucide-react";
 import { useRouter, useSearchParams } from "next/navigation";
 import EndCallButton from "./EndCallButton";
-type CallLayoutType = "grid" | "speaker-left" | "speaker-right";
+type CallLayoutType =
+  | "grid"
+  | "speaker-left"
+  | "speaker-right"
+  | "speaker-layout"
+  | "live-stream-layout";
 const MeetingRoom = () => {
   const searchParams = useSearchParams();
   const isPersonalRoom = !!searchParams.get("personal");
-  const [layout, setLayout] = useState<CallLayoutType>("speaker-left");
+  const [layout, setLayout] = useState<CallLayoutType>("speaker-layout");
 
   const [showparticipants, setShowparticipants] = useState(false);
 
@@ -43,6 +49,10 @@ const MeetingRoom = () => {
         return <SpeakerLayout participantsBarPosition={"left"} />;
       case "speaker-left":
         return <SpeakerLayout participantsBarPosition={"right"} />;
+      case "speaker-layout":
+        return <SpeakerLayout />;
+      case "live-stream-layout":
+        return <LivestreamLayout />;
     }
   };
   return (
@@ -69,7 +79,13 @@ const MeetingRoom = () => {
             </DropdownMenuTrigger>
           </div>
           <DropdownMenuContent className="border-dark-1 bg-dark-1 text-white">
-            {["Grid", "Speaker-Left", "Speaker-right"].map((item, index) => (
+            {[
+              "Grid",
+              "Speaker-Left",
+              "Speaker-right",
+              "Speaker-layout",
+              "Live-stream-layout",
+            ].map((item, index) => (
               <div key={index}>
                 <DropdownMenuItem
                   className="cursor-pointer"

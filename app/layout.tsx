@@ -6,7 +6,7 @@ import { Toaster } from "@/components/ui/toaster";
 
 import "@stream-io/video-react-sdk/dist/css/styles.css";
 
-import 'react-datepicker/dist/react-datepicker.css'
+import "react-datepicker/dist/react-datepicker.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -28,7 +28,7 @@ export default function RootLayout({
       <ClerkProvider
         appearance={{
           layout: {
-            logoImageUrl: "/icons/yoom-logo.svg",
+            logoImageUrl: "/icons/logo.svg",
             socialButtonsVariant: "iconButton",
           },
           variables: {
